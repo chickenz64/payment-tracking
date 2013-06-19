@@ -1,0 +1,20 @@
+<%= form_for(@client, remote:true, html:{id:""}) do |f| %>
+  <%= f.label :name, t('clients.name') %>
+  <%= f.text_field :name, class:"span4" %>
+  <%= f.label :phone, t('clients.phone') %>
+  <%= f.text_field :phone, class:"span4" %>
+  <%= f.label :email, t('clients.email') %>
+  <%= f.text_field :email, class:"span4" %>
+  
+  <% if @client.created_at.nil? %>
+    <%= f.label :group, t('groups.group') %>
+    <%= select_tag :group_id,
+      options_for_select(current_user.get_groups.map{|g| [g.name, g.id]}), {class:"span2", id:"select_group"} %>
+    <a class="btn-link no-underline" data-toggle="modal" role="button" href="#newGroupModal">
+      <%= t('groups.or_new') %></a>
+  <% end %>
+
+  <%= f.label :notes, t('notes') %>
+  <%= f.text_area :notes, rows:3, class:"span4"%>
+  <div class="center"><%= f.submit t('save'), :class=>'btn btn-post btn-large' %></div>
+<% end %>

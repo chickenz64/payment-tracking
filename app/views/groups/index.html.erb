@@ -1,0 +1,19 @@
+<% content_for :page_body do %>
+  <div class="row">
+    <div class="span8">
+      <h3 id="title"><%= link_to 'Home', root_path %> 
+        <i class="icon-double-angle-right"></i> <%= @header %></h3>
+      <div id="flash_msgs"><%= render 'shared/flash_messages' %></div>
+      <div id="form_msgs"><%= render 'shared/form_messages', target:@group %></div>
+      <%= render 'list' %>
+    </div>
+
+    <div class="span4 transparent">
+      <div class="bordered-form">
+        <h3 class="center"><%= t('groups.add')%></h3>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= render :template=>'layouts/list' %>

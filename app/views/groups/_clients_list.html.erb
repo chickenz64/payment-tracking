@@ -1,0 +1,39 @@
+<table class="table table-striped table-bordered table-condensed" id="list_payments">
+  <thead>
+    <tr>
+      <th><%= t('clients.name') %></th>
+      <th><%= t('plans.payments.remaining')%></th>
+      <th><%= t('plans.payments.paid')%></th>
+      <% if show_profit %><th><%= t('plans.profit')%></th><% end %>
+      <% if show_remove %><th><%= t('groups.remove_client') %></th><% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sum_profit = @sum_remaining = @paid_sum = 0 %>
+    <% @clients.each do |client| %>
+    <% 
+      next if (!show_zero_remaining && client.sum_remaining_amount == 0)
+      @sum_profit += client.sum_profit
+      @sum_remaining += client.sum_remaining_amount
+      @paid_sum += client.paid_sum
+    %>
+    <tr>
+      <td><%= link_to client.name, client %></td>
+      <td><%= client.sum_remaining_amount %></td>
+      <td><%= client.paid_sum %></td>
+      <% if show_profit %><td><%= client.sum_profit %></td><% end %>
+      <% if show_remove %><td><%= link_to t('remove'), group_remove_path(@group, client), 
+      { method: :delete, confirm:t('delete_confirm'), class: 'btn-link'} %></td><% end %>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td><%= t('Sum') %></td>
+      <td><%= @sum_remaining %></td>
+      <td><%= @paid_sum %></td>
+      <% if show_profit %><td><%= @sum_profit %></td><% end %>
+      <% if show_remove %><td></td><% end %>
+    </tr>
+  </tfoot>
+</table>

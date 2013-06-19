@@ -1,0 +1,29 @@
+ar:
+  plans:
+    plans: خطط الدفع
+    list: قائمة بجميع خطط الدفع
+    add: أضف خطة دفع جديدة
+    summary: ملخص بخطة الدفع
+    edit: تعديل خطة الدفع
+    delete: حذف خطة الدفع
+    delete_notice: إذا حذفت خطة الدفع, فستحذف جميع الدفعات التابعة لها.
+    profit: الربح
+    closed: انتهى الدفع؟
+    created: تم إنشاء خطة العمل بنجاح
+    
+    product:
+      name: البضاعة
+      original_price: سعر الشراء
+      selling_price: سعر البيع
+      delivery_date: تاريخ التسليم
+    
+    payments:
+      payments: الدفعات
+      add: أضف دفعة جديدة
+      amount: قيمة الدفع
+      paid_at: تاريخ الدفع
+      sum: مجموع الدفعات
+      remaining: المبلغ المتبقي
+      created: تم إضافة الدفعة بنجاح
+      paid: المبلغ المدفوع
+    

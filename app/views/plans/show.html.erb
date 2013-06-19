@@ -1,0 +1,43 @@
+<% content_for :page_body do %>
+  <div class="tabbable">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#list" data-toggle="tab"><%= t('plans.payments.payments') %></a></li>
+      <li class=""><a href="#summary" data-toggle="tab"><%= t('plans.summary') %></a></li>
+      <li class=""><a href="#edit" data-toggle="tab"><%= t('plans.edit') %></a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="list">
+        <div class="row">
+          <div class="span5">
+            <%= render 'payments_list' %>
+          </div>
+          <div class="span4 transparent">
+            <div class="bordered-form">
+              <h3 class="center"><%= t('plans.payments.add')%></h3>
+              <%= render 'payments_form' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="summary">
+        <div class="row">
+          <div class="span5"><%= render 'show', plan:@plan %></div>
+        </div>
+      </div>
+      <div class="tab-pane" id="edit">
+        <div class="row">
+          <div class="span4"><%= render 'form', remote: true %></div>
+          <div class="span5">
+            <div class="delete-notice">
+              <%= button_to t('plans.delete'), [@client, @plan], confirm: t('delete_confirm'), 
+              method: :delete, class: 'btn btn-danger' %>
+              <p><%= t('plans.delete_notice') %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+<%= render :template=>'layouts/client' %>

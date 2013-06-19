@@ -1,0 +1,12 @@
+<% content_for :page_body do %>
+
+    <div class="row">
+      <% @plans.each do |plan| %>
+        <div class="span4">
+          <%= render 'plans/show', plan:plan %>
+        </div>
+      <% end %>
+    </div>
+
+<% end %>
+<%= render :template=>'layouts/client' %>

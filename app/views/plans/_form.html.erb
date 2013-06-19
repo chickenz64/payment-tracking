@@ -1,0 +1,28 @@
+<%= form_for([@client, @plan], remote:remote) do |f| %>
+  <%= f.fields_for(@plan.product) do |product_form| %>
+    <%= product_form.label :name, t('plans.product.name') %>
+    <%= product_form.text_field :name, class:"span4" %>
+
+    <%= product_form.label :original_price, t('plans.product.original_price') %>
+    <div class="input-prepend">
+      <span class="add-on"><%= t('JD') %></span>
+      <%= product_form.text_field :original_price, {placeholder:'0', class:'span2'} %>
+    </div>
+
+    <%= product_form.label :selling_price, t('plans.product.selling_price') %>
+    <div class="input-prepend">
+      <span class="add-on"><%= t('JD') %></span>
+      <%= product_form.text_field :selling_price, {placeholder:'0', class:'span2'} %>
+    </div>
+
+    <%= product_form.label :delivery_date, t('plans.product.delivery_date') %>
+    <%= product_form.date_select :delivery_date, order:[:day, :month, :year] %>
+
+    <%#= f.label :discount %>
+    <%#= f.text_field :discount %>
+  <% end %>
+  
+  <%= f.label :notes, t('notes') %>
+  <%= f.text_area :notes, rows:4, class:"span4" %>
+  <div class="center"><%= f.submit t('save'), class:'btn btn-large btn-post no-underline' %></div>
+<% end %>

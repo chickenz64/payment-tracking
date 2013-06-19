@@ -1,0 +1,25 @@
+en:
+  clients: 
+    clients: Clients
+    search: Search clients..
+    name: Name
+    phone: Phone
+    email: Email
+    add: Add a New Client
+    edit: Edit Client Info.
+    delete: Delete Client
+    delete_notice: If you delete this client, you will also delete all payment plans associated with him/her
+    paid_this_month: Paid this month?
+    created: Client was created successfully.
+    
+  groups:
+    group: Group
+    groups: Groups
+    or_new: Or create new
+    add: Add a New Group
+    edit: Edit Group
+    name: Group Name
+    count: Number of Clients
+    add_client: Add a Client to Group
+    remove_client: Remove Client from Group
+    get_pdf: Prepare copy to print

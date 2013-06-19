@@ -1,0 +1,28 @@
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to 'Payment Tracking System', root_path, class:"brand" %></h1>
+      <ul class="nav pull-right">
+        <% unless user_signed_in? %>
+          <li class="<%= 'active' if current_page?(new_user_session_path) %>">
+            <%= link_to new_user_session_path do %><i class="icon-lock"></i> Login<% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(new_user_registration_path) %>">
+            <%= link_to new_user_registration_path do %><i class="icon-user"></i> Sign up<% end %>
+          </li>
+        <% else %>
+          <li class="<%= 'active' if current_page?(clients_path) %>">
+            <%= link_to clients_path do %>Clients<% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(groups_path) %>">
+            <%= link_to groups_path do %>Groups<% end %>
+          </li>
+          <li class="<%= 'active' if current_page?(edit_user_registration_path) %>">
+            <%= link_to edit_user_registration_path do %>Settings<% end %>
+          </li>
+          <li><%= link_to t('nav.logout'), destroy_user_session_path, method: :delete %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

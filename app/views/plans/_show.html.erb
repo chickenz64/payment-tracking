@@ -1,0 +1,39 @@
+<table class="table table-bordered table-striped" id="plan_summary">
+  <tbody>
+    <tr>
+      <td><%= t('plans.product.name') %></td>
+      <td colspan="2"><strong><%= plan.product.name rescue ""%></strong></td>
+    </tr>
+    <tr>
+      <td><%= t('plans.product.original_price') %></td>
+      <td><strong><%= plan.product.original_price rescue "" %></strong></td>
+      <td><strong><%= t('JD') %></strong></td>
+    </tr>
+    <tr>
+      <td><%= t('plans.product.selling_price') %></td>
+      <td><strong><%= plan.product.selling_price rescue "" %></strong></td>
+      <td><strong><%= t('JD') %></strong></td>
+    </tr>
+    <tr>
+      <td><%= t('plans.product.delivery_date') %></td>
+      <td colspan="2"><strong><%= plan.product.delivery_date rescue "" %></strong></td>
+    </tr>
+    <tr>
+      <td><%= t('plans.profit') %></td>
+      <td><strong><%= plan.profit rescue ""  %></strong></td>
+      <td><strong><%= t('JD') %></strong></td>
+    </tr>
+    <tr>
+      <td><%= t('plans.closed') %></td>
+      <td colspan="2"><strong><%= plan.is_closed %></strong></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3" class="">
+        <%= link_to t('plans.payments.payments'), 
+        client_plan_path(@client, plan), class:'btn-link pull-right' %>
+      </td>
+    </tr>
+  </tfoot>
+</table>

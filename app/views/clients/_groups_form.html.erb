@@ -1,0 +1,15 @@
+<div  id="newGroupModal" class="modal hide fade">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3><%= t('groups.add') %></h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for(@group, html:{class:"form-inline new_group_clients", remote:true}) do |f| %>
+      <%= t('groups.name') %> <%= f.text_field :name, class:"span3", autofocus:"true" %>
+      <div class="pull-right extra-top-margin">
+        <%= f.submit(t('save'), class: "btn btn-post no-underline") %>
+        <a data-dismiss="modal" class="btn"><%= t('cancel') %></a>
+      </div>
+    <% end %>
+  </div>
+</div>

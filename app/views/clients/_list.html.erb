@@ -1,0 +1,17 @@
+<%= form_tag(search_clients_path, remote:true, method: :get, id: "search_form") do %>
+  <%= text_field_tag :q, params[:q], placeholder: t('clients.search'), autofocus: true, class:"span5" %>
+<% end %>
+<table class="table table-bordered table-striped" id="list_clients">
+  <thead>
+    <tr>
+      <th>Client <%= t('clients.name') %></th>
+    </tr>
+  </thead>
+    <tbody>
+      <% clients.each do |client| %>
+        <tr>
+          <td><%= link_to client.name, client %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>

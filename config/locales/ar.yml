@@ -1,0 +1,81 @@
+ar:
+  #microlend: قروض صغيرة
+  microlend: CloudApp
+  
+  notes: ملاحظات
+  y: نعم
+  n: لا
+  close: إغلاق
+  save: حفظ
+  cancel: إلغاء
+  delete: حذف
+  delete_confirm: هل انت متأكد من الحذف؟
+  updated: تم تعديل المعلومات بنجاح 
+  deleted: تم الحذف بنجاح
+  created: تمت الإضافة بنجاح
+  JD: دينار
+  
+  print: طباعة
+  numbers: أرقام
+  nav:
+    logout: خروج
+    settings: إعدادات
+    
+  back:
+    home: رجوع إلى الصفحة الرئيسية
+    clients: رجوع إلى صفحة العملاء
+    groups: رجوع إلى صفحة المجموعات
+  
+  date:
+    abbr_day_names:
+    - الأحد
+    - الإثنين
+    - الثلاثاء
+    - الأربعاء
+    - الخميس
+    - الجمعة
+    - السبت
+    abbr_month_names:
+    - 
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    day_names:
+    - الأحد
+    - الإثنين
+    - الثلاثاء
+    - الأربعاء
+    - الخميس
+    - الجمعة
+    - السبت
+    formats:
+      default: ! '%Y-%m-%d'
+      long: ! '%B %e, %Y'
+      short: ! '%e %b'
+    month_names:
+    -
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    order:
+    - :day
+    - :month
+    - :year

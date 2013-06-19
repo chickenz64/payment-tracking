@@ -1,0 +1,7 @@
+// show form messages
+$("#form_msgs").html("<%= escape_javascript( render 'shared/form_messages', :target=>@plan ) %>");
+$("#flash_msgs").html("<%= escape_javascript( render(:partial => 'shared/flash_messages') ) %>");
+<% clear_flash %>
+
+// reload list
+$("#plan_summary").html("<%= escape_javascript( render 'show', plan:@plan ) %>");

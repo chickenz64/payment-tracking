@@ -1,0 +1,19 @@
+<%= form_tag(group_search_clients_path(@group), remote:true, method: :get) do %>
+  <%= text_field_tag :q, params[:q], placeholder: t('clients.search'), autofocus: true %>
+<% end %>
+<table class="table table-bordered table-condensed" id="list_clients">
+  <thead>
+    <tr>
+      <th><%= t('clients.name') %></th>
+      <th><%= t('groups.add_client') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_clients.to_a.each do |client| %>
+      <tr>
+        <td><%= link_to client.name, client %></td>
+        <td><%= link_to_unless @group.has_client?(client.id), 'Add to Group', group_add_path(@group, client) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

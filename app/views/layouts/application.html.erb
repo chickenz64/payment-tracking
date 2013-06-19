@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t('microlend') %></title>
+  <%= stylesheet_link_tag    "bootstrap.min"+(I18n.locale.to_s == "ar" ? "-rtl" : "") %>
+  <%= stylesheet_link_tag    "font-awesome.min"+(I18n.locale.to_s == "ar" ? "-rtl" : "") %>
+  <%= stylesheet_link_tag    "home"+(I18n.locale.to_s == "ar" ? "-rtl" : "") %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+  <%= render 'shared/nav' %>
+
+  <div class="container">
+    <%= content_for?(:page_body) ? yield(:page_body) : yield %>
+    <%= render 'shared/footer' %>
+  </div>
+
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<% content_for :page_body do %>
+
+  <div class="row">
+    <div class="span4">
+      <%= render 'form' %>
+    </div>
+    <div class="span5">
+      <div class="delete-notice">
+        <%= button_to t('clients.delete'), @client, 
+          confirm: t('delete_confirm'), method: :delete, class: 'btn' %>
+        <p><%= t('clients.delete_notice') %></p>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+<%= render :template=>'layouts/client' %>

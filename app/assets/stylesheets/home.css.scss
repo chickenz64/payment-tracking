@@ -1,0 +1,550 @@
+@mixin background-gardiant ($bg: #fff, $from: #fff, $to: #fff) {
+  background-color: $bg;
+  background-image: -moz-linear-gradient(top, $from, $to);
+  background-image: -webkit-gradient(linear,0 0,0 100%, from($from), to($to));
+  background-image: -webkit-linear-gradient(top, $from, $to);
+  background-image: -o-linear-gradient(top, $from, $to);
+  background-image: linear-gradient(to bottom, $from, $to);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}',endColorstr='#{$to}',GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+@mixin box-shadow ($x: 1px, $y: 2px, $blur: 10px, $color: rgba(0,0,0,0.2)) {
+  box-shadow: $x $y $blur $color; 
+  -moz-box-shadow: $x $y $blur $color;
+  -webkit-box-shadow: $x $y $blur $color;
+}
+@mixin border-radius ($a: 0, $b: 0, $c: 0, $d: 0) {
+  -webkit-border-radius: $a $b $c $d;
+  -moz-border-radius: $a $b $c $d;
+  border-radius: $a $b $c $d;
+}
+
+$textGrey: #7C7260;
+$lighterRed: lighten(#be2b2b, 5%);
+$red:#be2b2b;
+$darkerRed: darken(#be2b2b, 5%);
+$white: #fff;
+
+$myred: #be2b2b;
+$mybrown: #4a392c;
+body {
+  direction:ltr;
+  background:url('c9dxgyr.png');
+  color: $mybrown;
+  padding:100px 0;
+  font-size: 16px;
+}
+a, .btn-link {
+  color:$lighterRed;
+  &:hover {
+    color:$darkerRed;
+    text-decoration:underline;
+  }
+}
+h1, h2, h3 {
+  color: $red;
+  text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+}
+h4 {
+  text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+  margin-bottom:4px;
+  padding-top:10px;
+}
+p {
+  color: $textGrey;
+  font-size: 15px;
+  line-height: 22px;
+  padding:0px 10px;
+  margin:0;
+}
+.alert-success, .alert-error, .alert-warning, .alert-info {
+  background: rgba(219, 216, 200, 0.3);
+  border: 0;
+  font-weight: bold;
+  text-align:left;
+}
+.icon-asterisk {
+  color:$red;
+  font-size:12px;
+}
+.center {
+  text-align:center;
+}
+.field_with_errors {
+  display:inline;
+}
+hr {
+  margin:0 0 10px 0;
+  border-color: rgba(140, 76, 70, 0.2); //$red;
+  border-top:0;
+}
+
+ul {
+  margin-bottom:0px;
+}
+
+// Inverted navbar
+// -------------------------
+.navbar-inverse {
+  .navbar-inner {
+    min-height: 60px;
+    background: $myred;//@navbarInverseBackground;
+    border: 0px solid #4a392c;//@navbarInverseBorder;
+    @include box-shadow(none);
+  }
+  .nav > li > a {
+    padding: 20px 15px 20px;
+    color: #ddd3aa;//@navbarInverseLinkColor;
+    text-shadow: 0 1px 0 rgba(0,0,0,.25);
+    font-weight:700;
+    font-size:16px;
+    &:hover,
+    &:focus {
+      text-shadow: none; //0 1px 0 rgba(0,0,0,.25);
+      color: #4a392c;//@navbarInverseLinkColorHover;
+    }
+  }
+  .nav .active > a,
+  .nav .active > a:hover,
+  .nav .active > a:focus {
+    text-shadow: none; //0 1px 0 rgba(0,0,0,.25);
+    color: #ddd3aa;//@navbarInverseLinkColorActive;
+    background-color: #4a392c;//@navbarInverseLinkBackgroundActive;
+    @include box-shadow(none);
+  }
+  .brand {
+    padding: 20px 15px 20px;
+    color: darken($myred, 30%);//@navbarInverseBrandColor;
+    font-weight: 700;
+    text-shadow: 0 1px 0 rgba(255,255,255, 0.3);
+    font-size:23px;
+    &:hover,
+    &:focus {
+      color: darken($myred, 70%);//@navbarInverseBrandColor;
+    }
+  }
+}
+
+// login, signup and forgot password
+#form {
+  padding:0 20px 15px 20px;
+  background-color:rgba(219,216,200,0.3);
+  border:3px solid $myred;
+  .mylabel {
+    font-size:16px;
+    font-weight:700;
+    padding-right:10px;
+    display:inline-block;
+    width:150px;
+    text-align:right;
+  }
+  h2 {
+    margin-top:30px;
+    margin-bottom:30px;
+  }
+  input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    font-size:16px;
+    font-weight:700;
+    color: $mybrown;
+    padding:7px 5px;
+  }
+  div {
+    text-align:center;
+    margin:20px 0;
+  }
+  .alert {
+    text-align:left;
+  }
+}
+.shared-users {
+  padding:0 20px 0px 20px;
+}
+.bordered-form {
+  border:2px solid $mybrown;
+  h2 {
+    margin:20px 0;
+    font-size:29px;
+  }
+  
+}
+.new_client, .edit_client, .new_plan, .edit_plan, .new_payment, .new_group {
+    label {
+      font-size:16px;
+      color:$mybrown;
+      font-weight:700;
+      padding-top:7px;
+    }
+}
+form#search_form {
+  input[type="text"] {
+    padding:7px 5px;
+    font-size:16px;
+  font-weight:700;
+  }
+  margin:0px 0 7px 0;
+}
+// header used in application layout, and home/index.html
+div.home-header {
+  padding-top:60px;
+  a {
+    font-family:Capita-Light;
+    line-height:18px;
+    color:$red;
+    &:hover {text-decoration:none;}
+  }
+  h1 {
+    text-align:right;
+    font-size:35px;;
+    letter-spacing: -1px;
+    font-weight: normal; 
+    font-style: normal; 
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  ul li {
+    font-size:18px;
+    margin-top:10px;
+  }
+}
+div.inner-pages {
+  padding-top:30px;
+  padding-bottom:7px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  a {
+    // font-familyfo:Capita-Light;
+    line-height:30px;
+    color: $red;
+    &:hover {
+      color: $red;
+      text-decoration:none;
+    }
+  }
+  h2 {
+    margin-top:4px;;
+    margin-bottom:0;
+    text-align:center;
+    letter-spacing: -1px;
+  }
+  ul {
+    margin: 17px 0 0 0;
+    font-size:18px;
+    a {
+      &:hover { text-decoration:underline; }
+    }
+  }
+  ul.right {
+    text-align:right;
+  }
+}
+
+// home inside home/index.html
+.home {
+  h3 {
+    margin:25px 0 0px 0;
+    color:$red;
+    font-size:25px;
+    font-family:Capita-Light;
+    font-weight:500;
+    letter-spacing:-1px;
+  }
+  p {
+    padding-left:0;
+  }
+  p.lead {
+    margin-bottom:15px;
+  }
+  p.sub-lead {
+    font-size:17px;
+  }
+  p.signup {
+    padding-top:20px;
+    text-align:center;
+  }
+  ul {
+    li {
+      color: #706757;
+      line-height:18px;
+      font-size:17px;
+      padding:5px 0;
+    }
+  }
+  .media {
+    h4 {
+      padding-top:2px;
+    }
+    .media-body {
+      line-height:16px;
+    }
+    .media-box {
+      width:64px;
+      height:64px;
+      font-size:30px;
+      text-align:right;
+      .user {
+        position: absolute;
+        top: 346px;
+        font-size: 58px
+      }
+      .plus {
+        position:absolute;
+        font-size: 20px;
+        top: 342px;
+        left: 254px;
+      }
+      .group {
+        position: absolute;
+        font-size: 47px;
+        text-align: right;
+        left: 300px;
+      }
+      .notify {
+        position: absolute;
+        font-size: 56px;
+        text-align: right;
+        left: 220px;
+        top: 482px;
+      }
+    }
+  }
+  .last-media {
+    margin-top:0;
+  }
+}
+
+div.footer {
+  padding-top:10px;
+  hr {
+    margin-top:10px;
+  }
+  p {
+    padding-top:0px;
+  }
+}
+
+
+.table-bordered {
+  @include border-radius(0px, 0px, 0px, 0px);
+  thead:first-child tr:first-child > th:first-child, tbody:first-child tr:first-child > td:first-child {
+    -webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-border-radius-topleft: 0;
+  }
+  thead:last-child tr:last-child > th:first-child, tbody:last-child tr:last-child > td:first-child,
+  tfoot:last-child tr:last-child > td:first-child {
+    -webkit-border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft:0px;
+  }
+}
+table, .table {
+  // background-color: rgba(249,249,249, 0.5);
+  border-color: $textGrey;
+  tr, th {
+    border-color: $textGrey;
+    td {
+  background-color: rgba(249,249,249, 0.4);
+      border-color: $textGrey;
+    }
+  }
+  thead tr, tfoot tr {
+    td, th {
+      background-color: rgba(219, 216, 200,  0.4);
+    }
+  }
+}
+
+
+
+.new_plan, .edit_plan {
+  select {
+    &#plan_product_delivery_date_3i {width:55px;}
+    &#plan_product_delivery_date_1i {width:70px;}
+    &#plan_product_delivery_date_2i {width:112px;}
+  }
+}
+.new_payment {
+  padding:0 25px;
+  select {
+    &#payment_paid_at_1i {width:69px;}
+    &#payment_paid_at_2i {width:107px;}
+    &#payment_paid_at_3i {width:55px;}
+  }
+}
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, 
+input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, 
+input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, 
+input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+  color: $textGrey;
+  border-color:$textGrey;
+  @include box-shadow(0px, 0px, 0px, rgba(0,0,0,0));
+}
+.btn {
+  color: $white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-color: $darkerRed;
+  @include background-gardiant ($red,$red , $darkerRed);
+  &:hover, &:active, &.active, &.disabled, &[disabled] {
+  color: $white;
+    background-color: $darkerRed;
+  }
+}  
+
+
+.transparent {
+  background-color:rgba(219,216,200,0.3);
+}
+.list .transparent, .groups .transparent {
+  form {
+    padding-left:36px;
+    padding-right:36px;
+    label {
+      text-indent:5px;
+    }
+  }
+}
+.menu {
+  ul {
+    padding-top:10px;
+    padding-bottom:10px;
+    li {
+      margin: 9px 0px;
+    }
+    li a {
+      margin-right:0px;
+      margin-left:0px;
+      padding-top:7px; 
+      padding-bottom:7px; 
+    }
+    .divider {
+      margin: 5px 0px;
+      background-color: rgba(140, 76, 70, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.8);;
+    }
+    .active > a, .active > a:hover {
+      color: white;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+      background-color: $red;
+    }
+    li > a:hover {
+      background-color: rgba(219, 216, 200,  0.6);
+    }
+  }
+}
+.nav-tabs {
+  border-bottom: 1px solid $textGrey;;
+  > .active > a, > .active > a:hover {
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
+    cursor: default;
+    background-color: $red;
+    border: 1px solid $textGrey;
+    border-bottom-color: transparent;
+  }
+  li > a {
+      @include border-radius(0px, 0px, 0px, 0px);
+    &:hover {
+      border: 1px solid rgba(196, 111, 102, 0);
+      margin-bottom:-1px;
+      background-color: rgba(219, 216, 200, 0.3); //$red;
+    }
+  }
+}
+.delete-notice {
+  padding-top:50px;
+  margin-left:20px;
+  form {
+    margin:0px;
+  }
+  p {
+    padding:6px 0 0 0px;
+  }
+}
+.delete-group {
+  padding: 0 0 20px 36px;
+  font-size:15px;
+  font-weight:bold;
+}
+h3#title {
+  margin:0 0 25px 0;
+  line-height:30px;
+  font-size:25px;
+  letter-spacing:0px;
+  color: $mybrown;
+  font-weight:700;
+  a:hover {
+    text-decoration:none;
+  }
+}
+form#search_clients {
+  margin:0px 0 7px 0;
+
+}
+.box {
+  padding-left:40px;
+  // * {
+  //   position: absolute;
+  // }
+  .curved {
+    font-size: 47px;
+    top: 132px+10;
+    left: 313px+10;
+    -webkit-transform: rotate(-47deg);
+    display: inline-block;
+    color: #DBD8C8;
+    text-shadow: 1px -1px 0px rgba(89, 78, 56, 0.4);
+  }
+  .tablet {
+    top: 104px+10;
+    font-size: 60px;
+    left: 440px+10;
+    color: #99B25F;
+  }
+  .gift {
+    top: 120px+10;
+    font-size: 52px;
+    left: 485px+10;
+    color: #DB3763;
+  }
+  .clients {
+    top: 159px+10;
+    font-size: 88px;
+    left: 242px+10;
+    color: $textGrey;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+  }
+  .camera {
+    top: 130px+10;
+    font-size: 39px;
+    left: 394px+10;
+    color: #EF6A32;
+  }
+  .you {
+    top: 156px+10;
+    font-size: 100px;
+    left: 422px+10;
+    color: $textGrey;
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.6);
+  }
+  .m1 {
+    top: 191px+10;
+    font-size: 25px;
+    left: 355px+10;
+    color:#1f583a;
+  }
+  .m2 {
+    top: 212px+10;
+    font-size: 25px;
+    color: #1F583A;
+    left: 374px+10;
+  }
+}
+
+div#graph {
+  width:400px;position: relative;
+  height:300px;
+  margin:0 0 0 0;
+  display:block;
+}

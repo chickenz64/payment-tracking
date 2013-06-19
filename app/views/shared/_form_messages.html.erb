@@ -1,0 +1,10 @@
+<% if target && target.errors.any? %>
+  <div class="alert alert-error">
+    <ul>
+      <% target.errors.full_messages.each do |msg| %><li><%= "#{msg}" %></li><% end %>
+      <% if (child ||= nil) && child.errors.any? %>
+        <% child.errors.full_messages.each do |msg| %><li><%= "#{msg}" %></li><% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

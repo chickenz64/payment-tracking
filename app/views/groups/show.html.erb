@@ -1,0 +1,57 @@
+<% content_for :page_body do %>
+  <div class="row">
+    <div class="span9">
+      <div id="flash_msgs"><%= render 'shared/flash_messages' %></div>
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#clients" data-toggle="tab"><%= t('clients.clients') %></a></li>
+          <li class=""><a href="#add" data-toggle="tab"><%= t('groups.add_client') %></a></li>
+          <li class=""><a href="#numbers" data-toggle="tab"><%= t('numbers') %> & Graphs</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="clients">
+            <%= render 'clients_list', show_remove:true, show_profit:true, show_zero_remaining:false %> 
+          </div>
+          <div class="tab-pane" id="add">
+            <div class="row">
+              <div class="span5">
+                <div id="list_clients"><%= render 'search_clients_list' %></div>
+              </div>
+              <div class="span4 transparent">
+                <div class="bordered-form">
+                  <h3 class="center"><%= t('groups.edit') %></h3>
+                  <%= render 'form' %> 
+                  <div class='delete-group'>
+                    <%= link_to 'Delete Group', @group, 
+                          { method: :delete, confirm:t('delete_confirm'), class: 'btn-link'} %>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane" id="numbers">
+            <div class="row">
+              <div class="span6">
+                <div id="graph"></div>
+              </div>
+              <div class="span3 transparent">
+                <div class="transparent menu">
+                  <ul class="nav nav-list" id="graphs">
+                    <li class="nav-header">Show Graphs Of:</li>
+                    <li class=""><a href="javascript:void(0);" id="highest-paid">Highest-Paid Clients</a></li>
+                    <li class=""><a href="javascript:void(0);" id="highest-profit">Highest-Profit Clients</a></li>
+                    <li class=""><a href="javascript:void(0);" id="highest-remaining">Highest-Remaining Clients</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<% end %>
+<%= render :template=>'layouts/group' %>

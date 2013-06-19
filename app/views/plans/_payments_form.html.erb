@@ -1,0 +1,11 @@
+<%= form_for(@payment, 
+url: client_plan_new_payment_path(@client, @plan), remote:true) do |f| %>
+  <%= f.label :amount_paid, t('plans.payments.amount') %> 
+  <div class="input-prepend">
+    <span class="add-on"><%= t('JD') %></span>
+    <%= f.text_field :amount_paid, {placeholder:'0', class:'span2'} %>
+  </div>
+  <%= f.label :paid_at, t('plans.payments.paid_at') %> 
+  <%= f.date_select :paid_at, order:[:day, :month, :year] %>
+  <div class="center"><%= f.submit t('save'), class:'btn btn-large' %></div>
+<% end %>

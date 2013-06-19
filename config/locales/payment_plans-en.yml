@@ -1,0 +1,29 @@
+en:
+  plans:
+    plans: Payment Plans
+    list: List of Payment Plans
+    add: Add a New Plan
+    summary: Summary of Payment Plan
+    edit: Edit Payment Plan
+    delete: Delete Payment Plan
+    delete_notice: If you delete this plan, you will also delete all payments associated with it
+    profit: Profit
+    closed: Closed?
+    created: Payment Plan was created successfully
+    
+    product:
+      name: Product
+      original_price: Original Price
+      selling_price: Selling Price
+      delivery_date: Delivery Date
+    
+    payments:
+      payments: Payments
+      add: Add a New Payment
+      amount: Amount Paid
+      paid_at: Paid At
+      sum: Sum of Payments
+      remaining: Remaining Payments
+      created: Payment was added successfully
+      paid: Amount Paid
+    

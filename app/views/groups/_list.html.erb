@@ -1,0 +1,16 @@
+<table class="table table-bordered table-condensed table-striped" id="list_payments">
+  <thead>
+    <tr>
+      <th><%= t('groups.name') %></th>
+      <th><%= t('groups.count') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @groups.each do |group| %>
+    <tr>
+      <td><%= link_to group.name, group %></td>
+      <td><%= group.count %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

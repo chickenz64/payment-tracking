@@ -1,0 +1,25 @@
+<div class="transparent menu">
+  <ul class="nav nav-list">
+    <li class="<%= 'active' if current_page?(new_client_plan_path(@client))  %>">
+      <%= link_to t('plans.add'), new_client_plan_path(@client) %>
+    </li>
+    <li class="<%= 'active' if current_page?(client_plans_path(@client)) %>">
+      <%= link_to t('plans.list'), client_plans_path(@client) %>
+    </li>
+    <% unless @plans.blank? %>
+      <li class="nav-header"><%= t('plans.plans') %></li>
+      <% @plans.each do |plan| %>
+        <li class="<%= 'active' if current_page?(client_plan_path(@client, plan)) %>">
+          <%= link_to plan.product.name, client_plan_path(@client, plan) %>
+        </li>
+      <% end %>
+    <% end %>
+    <li class="divider"></li>
+    <li class="<%= 'active' if current_page?(client_path(@client)) %>">
+      <%= link_to t('clients.edit'), client_path(@client) %>
+    </li>
+    <!-- <li class="divider"></li> -->
+    <!-- <li><%#= link_to t('back.clients'), clients_path %></li> -->
+    <!-- <li><%#= link_to t('back.home'), root_path %></li> -->
+  </ul>
+</div>
