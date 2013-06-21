@@ -1,7 +1,8 @@
 Graduation::Application.routes.draw do
   
   # scope "/:l", constraints: {l: /ar|en/} do
-    devise_for :users
+  devise_for :users, :controllers => { :passwords => "users/passwords", :registrations => "users/registrations" }
+
     resources :clients, except:[:edit] do
       collection do 
         get "/" => "clients#index"
