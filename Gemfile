@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3' # this fixes mongoid+heroku problem, in order for it to work we must gem install bundler --pre
+# ruby '1.9.3' # this fixes mongoid+heroku problem, in order for it to work we must gem install bundler --pre
 gem 'rails', '3.2.11'
 gem "mongoid"
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
