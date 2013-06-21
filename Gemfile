@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# ruby '1.9.3' # this fixes mongoid+heroku problem, in order for it to work we must gem install bundler --pre
+ruby '1.9.3' # this fixes mongoid+heroku problem, in order for it to work we must gem install bundler --pre
 gem 'rails', '3.2.11'
 gem "mongoid"
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
@@ -11,13 +11,13 @@ gem 'kaminari'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails'
+  # gem 'sass-rails'
   # gem 'less-rails'
-  gem 'css_convertor'
+  # gem 'css_convertor'
   # gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platform => :ruby
+  # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
